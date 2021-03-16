@@ -1,0 +1,104 @@
+/* GENERAL */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    background-color: #e0bfa9;
+}
+
+h1 {
+    font-size: 3.5em;
+    color: rgb(66, 66, 66);
+    text-align: center;
+    padding: 100px 0 30px 0;
+  }
+
+
+/* NAV */
+header {
+    height: 120px;
+    background-color: rgb(66, 66, 66);
+}
+  
+header nav {
+    text-align: right;
+    padding-right: 20px;
+}
+  
+header nav ul li {
+    display: inline-block;
+    height: 100%;
+}
+  
+header nav ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    display: block;
+    margin-top: 25px;
+    line-height: 70px;
+    padding: 0 10px;
+    transition-duration: 0.5s;
+}
+  
+header nav ul li a:hover {
+    background-color:  #e0bfa9;
+    color:  rgb(66, 66, 66);
+}
+
+
+
+/* ABOUT US */
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    padding: 20px 20px;
+    flex-direction: column;
+    flex-grow: 100%;
+}
+
+.about-us-cards {
+    display: flex;
+    align-items: center;
+    width: 900px;
+    border-radius: 10px;
+    margin: 20px auto;
+    background-color: rgb(66, 66, 66);
+    border: solid 1px #e0bfa9;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-us-cards div {
+    margin: 20px 20px 20px 0px;
+}
+
+.about-us-cards img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 20px;
+}
+  
+article h2 {
+    font-size: 2em;
+    color: #e0bfa9;
+    border-bottom: 1px solid #444;
+    text-transform: uppercase;
+    text-align: left;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+  
+article p {
+    font-size: 1em;
+    font-style: italic;
+    text-align: justify;
+    color: #e0bfa9;
+    margin-bottom: 0px;
+}
+  
