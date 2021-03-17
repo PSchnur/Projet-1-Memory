@@ -16,7 +16,7 @@ li {
 }
 
 body {
-    background-image : url("./background-donut.png");
+    background-image : url("images/background-donut.png");
     background-size: cover;
     height: 100vh;
 }
