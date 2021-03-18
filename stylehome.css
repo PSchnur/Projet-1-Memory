@@ -1,69 +1,85 @@
-
-*{
-    padding: 0;
-    margin: 0;
-}
-
-nav{
-    
-    
-}
-ul {
-    font-size: 2em;
-    text-align: right;
-    
-}
-
-li {
-    display : inline-flex; 
-    list-style: none;
-    
-    
-}
-
-li a {
-    color: black;
-    text-decoration: none;
+/* GENERAL */
+* {
+    margin: 0px;
+    padding: 0px;
 }
 
 body {
+    font-family: 'Indie Flower', cursive;
+    font-size: 1em;
     background-image : url("images/background-donut.png");
     background-size: cover;
+    background-attachment: fixed;
     height: 100vh;
 }
 
-.welcome {
-    font-size: 2em;
+h1 {
+    font-size: 3.5em;
+    color: rgb(66, 66, 66);
     text-align: center;
-    margin: auto;
-    align-items: center;
-    justify-content: center;
- 
+    padding: 50px 0 30px 0;
 }
 
+
+/* NAV */
+header {
+    font-family: Arial, sans-serif;
+    height: 100px;
+    background-color: rgb(66, 66, 66);
+}
+  
+header nav {
+    text-align: right;
+    padding-right: 20px;
+}
+  
+header nav ul li {
+    display: inline-block;
+    height: 100%;
+}
+  
+header nav ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ffe5d1;
+    display: block;
+    margin-top: 25px;
+    line-height: 50px;
+    padding: 0 10px;
+    transition-duration: 0.5s;
+}
+  
+header nav ul li a:hover, header nav ul li a.current {
+    background-color:  #ffe5d1;
+    color:  rgb(66, 66, 66);
+}
+
+
+/* bouton */
 
 .bouton1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-
-
+    padding: 400px 0 0 0;
 }
+
 .play {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 200px;;
-    height: 100px;
-    border-radius: 40px;
-    color : #ff6b91;
     font-size: 1.5em;
-    background-color: transparent;
-    margin: auto;
+    width: 150px;;
+    height: 70px;
+    border-radius: 10px;
+    border: solid 1px #ffe5d1;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin:  50px auto;
+    background-color: rgb(66, 66, 66);
 }
 .bouton1 a{
     text-decoration: none;
-    color: #ff6b91;
+    color: #ffe5d1;
 }
+
