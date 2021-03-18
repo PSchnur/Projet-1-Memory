@@ -1,0 +1,129 @@
+/* GENERAL */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Indie Flower', cursive;
+    font-size: 1em;
+    background-color: #ffe5d1;
+}
+h1 {
+    font-size: 3.5em;
+    color: rgb(66, 66, 66);
+    text-align: center;
+    padding: 50px 0 30px 0;
+  }
+
+/*
+
+body {
+    background-image : url("images/background-donut.png");
+    background-size: cover;
+    height: 100vh;
+}
+
+*/
+
+
+/* NAV */
+header {
+    font-family: Arial, sans-serif;
+    height: 100px;
+    background-color: rgb(66, 66, 66);
+}
+  
+header nav {
+    text-align: right;
+    padding-right: 20px;
+}
+  
+header nav ul li {
+    display: inline-block;
+    height: 100%;
+}
+  
+header nav ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ffe5d1;
+    display: block;
+    margin-top: 25px;
+    line-height: 50px;
+    padding: 0 10px;
+    transition-duration: 0.5s;
+}
+  
+header nav ul li a:hover, header nav ul li a.current {
+    background-color:  #ffe5d1;
+    color:  rgb(66, 66, 66);
+}
+
+
+/* SECTION JEU */
+
+.sectionJeu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+}
+
+.zoneJeu{
+    width: 90%;
+    height: 80vh;
+    background-color:  rgb(66, 66, 66);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin: 20px auto;
+    background-color: rgb(66, 66, 66);
+    border: solid 1px #ffe5d1;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* FOOTER */
+
+footer {
+    height: 100px;
+    width: 100%;
+    background-color: rgb(66, 66, 66);
+}
+
+footer p {
+    font-family: Arial, Helvetica, sans-serif;
+    color : #ffe5d1;
+    text-align: center;
+    padding-top: 40px;
+}
+
+
+
+@media screen and (min-width: 1280px) {
+
+
+
+    .sectionJeu{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 20px;
+    }
+    
+    .zoneJeu{
+        width: 1000px;
+        height: 500px;
+        background-color:  rgb(66, 66, 66);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        margin: 20px auto;
+        background-color: rgb(66, 66, 66);
+        border: solid 1px #ffe5d1;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+}

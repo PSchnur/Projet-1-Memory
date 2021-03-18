@@ -5,22 +5,23 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Indie Flower', cursive;
     font-size: 1em;
-    background-color: #e0bfa9;
+    background-color: #ffe5d1;
 }
 
 h1 {
     font-size: 3.5em;
     color: rgb(66, 66, 66);
     text-align: center;
-    padding: 100px 0 30px 0;
+    padding: 50px 0 30px 0;
   }
 
 
 /* NAV */
 header {
-    height: 120px;
+    font-family: Arial, sans-serif;
+    height: 100px;
     background-color: rgb(66, 66, 66);
 }
   
@@ -37,16 +38,16 @@ header nav ul li {
 header nav ul li a {
     text-decoration: none;
     text-transform: uppercase;
-    color: white;
+    color: #ffe5d1;
     display: block;
     margin-top: 25px;
-    line-height: 70px;
+    line-height: 50px;
     padding: 0 10px;
     transition-duration: 0.5s;
 }
   
-header nav ul li a:hover {
-    background-color:  #e0bfa9;
+header nav ul li a:hover, header nav ul li a.current {
+    background-color:  #ffe5d1;
     color:  rgb(66, 66, 66);
 }
 
@@ -65,28 +66,29 @@ header nav ul li a:hover {
 .about-us-cards {
     display: flex;
     align-items: center;
-    width: 900px;
+    width: 100%;
     border-radius: 10px;
     margin: 20px auto;
     background-color: rgb(66, 66, 66);
-    border: solid 1px #e0bfa9;
+    border: solid 1px #ffe5d1;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
+
 
 .about-us-cards div {
     margin: 20px 20px 20px 0px;
 }
 
 .about-us-cards img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     margin: 0 20px;
 }
   
 article h2 {
-    font-size: 2em;
-    color: #e0bfa9;
+    font-size: 1em;
+    color: #ffe5d1;
     border-bottom: 1px solid #444;
     text-transform: uppercase;
     text-align: left;
@@ -95,10 +97,76 @@ article h2 {
 }
   
 article p {
-    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
     font-style: italic;
     text-align: justify;
-    color: #e0bfa9;
+    color: #ffe5d1;
     margin-bottom: 0px;
+}
+
+
+/* FOOTER */
+
+footer {
+    height: 100px;
+    width: 100%;
+    background-color: rgb(66, 66, 66);
+}
+
+footer p {
+    font-family: Arial, Helvetica, sans-serif;
+    color : #ffe5d1;
+    text-align: center;
+    padding-top: 40px;
+}
+
+
+
+
+
+@media screen and (min-width: 1280px) {
+
+
+
+    /* ABOUT US */
+    .about-us-cards {
+        display: flex;
+        align-items: center;
+        width: 900px;
+        border-radius: 10px;
+        margin: 20px auto;
+        background-color: rgb(66, 66, 66);
+        border: solid 1px #ffe5d1;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-us-cards img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 0 20px;
+    }
+
+    article h2 {
+        font-size: 2em;
+        color: #ffe5d1;
+        border-bottom: 1px solid #444;
+        text-transform: uppercase;
+        text-align: left;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+      
+    article p {
+        font-size: 1em;
+        font-style: italic;
+        text-align: justify;
+        color: #ffe5d1;
+        margin-bottom: 0px;
+
+
+
+    
 }
   
