@@ -100,7 +100,10 @@ footer p {
     font-family: Arial, Helvetica, sans-serif;
     color : #ffe5d1;
     text-align: center;
-    padding: 50px
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
