@@ -7,7 +7,7 @@ let intervalId;
 let dec = 0;
 let sec = 0;
 let min = 0;
-chrono.innerHTML = min + ' :' + sec + ' . ' + dec;
+chrono.value = min + ' :' + sec + ' . ' + dec;
 
 startChrono.addEventListener('click', timer);
 stopChrono.addEventListener('click', stopTimer);
@@ -15,7 +15,7 @@ stopChrono.addEventListener('click', stopTimer);
 
 function timer(){
     intervalId = setInterval(function(){
-        chrono.innerHTML =  min + ' : ' + sec + ' . ' + dec;
+        chrono.value =  min + ' : ' + sec + ' . ' + dec;
         dec += 1;
         if(dec >= 10){dec = 0; sec += 1;}
         if(sec >= 60){sec = 0; min += 1;}
