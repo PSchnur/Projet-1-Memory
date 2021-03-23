@@ -90,6 +90,12 @@ header nav ul li a:hover, header nav ul li a.current {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
+.sectionJeu .card-img{
+
+    height: 200px;
+    width: 150px;
+}
+
 
 /* FOOTER */
 
