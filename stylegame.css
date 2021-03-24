@@ -89,11 +89,16 @@ header nav ul li a:hover, header nav ul li a.current {
     border: solid 1px #ffe5d1;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
-
-.sectionJeu .card-img{
+/*
+.zoneJeu #card-container{
 
     height: 200px;
     width: 150px;
+}
+*/
+#card-container img { 
+    height: 200px;
+    width: 200px;
 }
 
 
