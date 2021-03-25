@@ -1,4 +1,16 @@
-/* Tableau d'images */
+//création variable pour stocker le score 
+//création d'une variable pour accueilir la dataset
+//rattacher la variable cards à la div cardList dans l'HTML
+
+
+let emptyCard= null;
+/*let cards=document.querySelectorAll("#card-container div") */
+
+let score= document.querySelector(".score-container");
+
+
+
+/* Variable flip */
   let hasFlippedCard = false;
   let lockBoard = false;
   let firstCard = true;
@@ -25,7 +37,8 @@
       cardArray.push({url: cardUrls[i], name: "donut" + i});
       cardArray.push({url: cardUrls[i], name: "donut" + i});
     }
-
+      
+      
     return cardArray;
   }
 
@@ -47,6 +60,49 @@
   }
 
 
+  //Création d'une fonction pour le calcul des scores
+  //Etape 1 : emptyCard prends la valeur de la carte sur laquelle on clique
+  //Etape 2 : compare la valeur de emptyCard à celle du second clique
+
+    function playTurn (){
+
+      console.log(emptyCard)
+      if(emptyCard === null) {
+          emptyCard = firstCard.dataset.name
+ 
+  //Si valeur du second clique === celle de emptyCard +100 points
+  //réinitialise la valeur de emptyCard
+  //pourquoi +++ ?
+
+    } else if (emptyCard === secondCard.dataset.name) {
+      
+        score.value = score.value +++ 75;
+        console.log(score);
+        emptyCard = null;
+        
+        firstCard.removeEventListener("click", playTurn); // si les 2 cartes possèdent la même data,
+        secondCard.removeEventListener("click", playTurn); // elles restent retournées et ne peuvent plus être sélectionnées
+        
+    
+  // si valeur de emptyCard !== du second clique -25points
+  // réinitialise la valeur de emptyCard
+        
+    } else {
+
+        score.value = score.value - 25;
+        console.log(score);
+        emptyCard = null;
+
+       
+  //Ajout d'une condition si score <= à 0 return 0
+
+      if (score.value - 25 < 0) {
+        score.value = 0;
+    }  
+  }
+  };
+
+
 /*  Affichage du tableau en générant de l'HTML - A revoir  */
 
   function displayCard(card) {
@@ -60,6 +116,7 @@
     document.getElementById("card-container").appendChild(cardDiv);
 
     cardDiv.addEventListener("click", flipCard); // permet de sélectionner une carte et de la retourner
+    cardDiv.addEventListener('click', playTurn) //Ajout de l'eventListener 'click' pour la fonction playTurn
   };
 
 
@@ -93,9 +150,28 @@
         secondCard.classList.remove("flip");
 
         lockBoard = false; // 'débloque' le tableau
-      }, 1000);
+      }, 800);
     }
   }
+
+
+/* FIN DU JEU */
+
+/*
+const totalPaires = 0
+
+function finishGame(){
+    totalPaires += 1;
+    if(totalPaires >=6) {
+    alert("Bien joué !!");
+    }
+}
+
+
+/*
+
+
+
 
 
 
@@ -105,3 +181,5 @@
     shuffle(cardArray);
 
     cardArray.forEach(displayCard);
+
+    /* finishGame();  */
