@@ -1,8 +1,13 @@
 /* Tableau d'images */
+  let hasFlippedCard = false;
+  let lockBoard = false;
+  let firstCard = true;
+  let secondCard = true;
 
-// const backCard = "urlbackcard"; ? 
+/* Tableau d'images */
+  const backCardUrl = "./images/backcard.jpg";
 
-const donutUrls = [ 
+  const frontCardUrls = [ 
     './images/donuts/2-14.jpg',
     './images/donuts/16-01.jpg',
     './images/donuts/19-08.jpg',
@@ -24,6 +29,7 @@ const donutUrls = [
     return cardArray;
   }
 
+  
 /* Mélanger le tableau */
   function shuffle(arr) {
     var currentIndex = arr.length;
@@ -43,20 +49,59 @@ const donutUrls = [
 
 /*  Affichage du tableau en générant de l'HTML - A revoir  */
 
-function displayCard(card) {
-  const cardDiv = document.createElement("div");
-  cardDiv.innerHTML =`
-    <p>${card.name}</p>
-    <img src="${card.url}" />
-  `;
-  document.getElementById("card-container").appendChild(cardDiv);
-};
+  function displayCard(card) {
+    const cardDiv = document.createElement("div");
+    cardDiv.className = "card";
+    cardDiv.dataset.name = card.name;
+    cardDiv.innerHTML =`
+      <img class="front" src="${card.url}" />
+      <img class="back" src="${backCardUrl}" />
+    `;
+    document.getElementById("card-container").appendChild(cardDiv);
+
+    cardDiv.addEventListener("click", flipCard); // permet de sélectionner une carte et de la retourner
+  };
+
+
+/* Fonction retournement cartes */
+  function flipCard() {
+    if (lockBoard) return; // oblige à sélectionner uniquement 2 cartes
+    if (this === firstCard) return; // empêche le double-clique d'une carte
+
+    this.classList.add("flip"); // ajoute la classe 'flip' à toutes les cartes
+
+    if (!hasFlippedCard) {
+      // premier clique/première carte
+      hasFlippedCard = true;
+      firstCard = this;
+
+      return;
+    }
+
+    // second clique/seconde carte
+    hasFlippedCard = false;
+    secondCard = this;
+
+    if (firstCard.dataset.name === secondCard.dataset.name) {
+      firstCard.removeEventListener("click", flipCard); // si les 2 cartes possèdent la même data,
+      secondCard.removeEventListener("click", flipCard); // elles restent retournées et ne peuvent plus être sélectionnées
+    } else {
+      lockBoard = true; // 'bloque' le tableau afin qu'uniquement 2 cartes soient sélectionnées
+
+      setTimeout(() => {
+        firstCard.classList.remove("flip"); // retourne les 2 cartes si elles ne correspondent pas après 1 seconde
+        secondCard.classList.remove("flip");
+
+        lockBoard = false; // 'débloque' le tableau
+      }, 1000);
+    }
+  }
 
 
 
-/* Démarrage du jeu - point de départ du programme */ 
-const cardArray = createArray(6, donutUrls);
+  /* Démarrage du jeu - point de départ du programme */ 
+    const cardArray = createArray(6, frontCardUrls);
 
-shuffle(cardArray);
+    shuffle(cardArray);
 
-cardArray.forEach(displayCard);
+    cardArray.forEach(displayCard);

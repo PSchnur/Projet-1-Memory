@@ -83,6 +83,7 @@ header nav ul li a:hover, header nav ul li a.current {
     background-color: rgb(66, 66, 66);
     border: solid 1px #ffe5d1;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    perspective: 1000px;
 }
 
 #card-container{
@@ -90,14 +91,36 @@ header nav ul li a:hover, header nav ul li a.current {
     display: grid;
     row-gap: 20px;
     grid: repeat(3, auto) / auto-flow auto; 
-    justify-items: center
-;
+    justify-items: center;
 
 }
 
-#card-container img { 
+.card.flip {
+    transform: rotateY(180deg)  scaleX(-1);
+    -webkit-transform: rotateY(180deg)  scaleX(-1);
+}
+
+.card{
+    -webkit-transition: transform 0.6s;
+    transition: transform 0.6s;
+    height: 150px;
+    width: 150px;;
+    transform-style: preserve-3d;
+  }
+
+
+
+.front, .back { 
+    position: absolute;
     height: 100px;
     width: 100px;
+    border-radius: 5px;
+    backface-visibility: hidden;
+}
+
+
+ .front {
+    transform: rotateY(180deg);
 }
 
 
