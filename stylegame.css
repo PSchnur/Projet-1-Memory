@@ -1,11 +1,12 @@
 /* GENERAL */
 * {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
-html, body {
-    min-height: 100vh;
+html,
+body {
+  min-height: 100vh;
 }
 body {
     display: flex;
@@ -13,13 +14,21 @@ body {
     font-family: 'Indie Flower', cursive;
     font-size: 1em;
     background-color: #ffe5d1;
-
+    background-image : url("images/background-donut.png");
+    background-size: cover;
+    background-attachment: fixed;
 }
+
+
+
 h1 {
     font-size: 3.5em;
-    color: rgb(66, 66, 66);
+    color: #351705;
     text-align: center;
     padding: 50px 0 30px 0;
+    text-shadow: 10px 0 0 #ffe5d1, 0 2px 0 #ffe5d1, 0 -2px 0 #ffe5d1,
+    -2px 0 0 #ffe5d1, 2px 2px 0 #ffe5d1, 2px -2px 0 #ffe5d1, -2px 2px 0 #ffe5d1,
+    -2px -2px 0 #ffe5d1, 0 0 10px #ffe5d1;
   }
 
 
@@ -27,19 +36,19 @@ h1 {
 header {
     font-family: Arial, sans-serif;
     height: 100px;
-    background-color: rgb(66, 66, 66);
+    background-color: #351705;
 }
-  
+
 header nav {
-    text-align: right;
-    padding-right: 20px;
+  text-align: right;
+  padding-right: 20px;
 }
-  
+
 header nav ul li {
-    display: inline-block;
-    height: 100%;
+  display: inline-block;
+  height: 100%;
 }
-  
+
 header nav ul li a {
     text-decoration: none;
     text-transform: uppercase;
@@ -53,30 +62,36 @@ header nav ul li a {
   
 header nav ul li a:hover, header nav ul li a.current {
     background-color:  #ffe5d1;
-    color:  rgb(66, 66, 66);
+    color:  #351705;
+    border-radius: 5px;
 }
 
+header nav ul li a:hover,
+header nav ul li a.current {
+  background-color: #ffe5d1;
+  color: rgb(66, 66, 66);
+}
 
 /* SECTION JEU */
 
-.sectionJeu{
-    padding: 20px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.sectionJeu {
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.sectionJeu label{
-    font-size: 1.5em;
-    font-family: Arial, Helvetica, sans-serif;
+.sectionJeu label {
+  font-size: 1.5em;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.score-container{
-    margin: 20px;
-    height: 100%;
-    width: 200px;
-    font-size: 2em;
-    text-align: center;
+.score-container {
+  margin: 20px;
+  height: 100%;
+  width: 200px;
+  font-size: 2em;
+  text-align: center;
 }
 
 .zoneJeu{
@@ -85,73 +100,66 @@ header nav ul li a:hover, header nav ul li a.current {
     border-radius: 10px;
     margin: 20px auto;
     padding-bottom: 50px;
-    background-color: rgb(66, 66, 66);
+    background-color: #351705;
     border: solid 1px #ffe5d1;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     perspective: 1000px;
 }
 
-#card-container{
-    margin: 20px;
-    display: grid;
-    row-gap: 20px;
-    grid: repeat(3, auto) / auto-flow auto; 
-    justify-items: center;
-
+#card-container {
+  margin: 20px;
+  display: grid;
+  row-gap: 20px;
+  grid: repeat(3, auto) / auto-flow auto;
+  justify-items: center;
 }
 
 .card.flip {
-    transform: rotateY(180deg)  scaleX(-1);
-    -webkit-transform: rotateY(180deg)  scaleX(-1);
+  transform: rotateY(180deg) scaleX(-1);
+  -webkit-transform: rotateY(180deg) scaleX(-1);
 }
 
-.card{
-    -webkit-transition: transform 0.6s;
-    transition: transform 0.6s;
-    height: 150px;
-    width: 150px;;
-    transform-style: preserve-3d;
-  }
-
-
-
-.front, .back { 
-    position: absolute;
-    height: 100px;
-    width: 100px;
-    border-radius: 5px;
-    backface-visibility: hidden;
+.card {
+  cursor: pointer;
+  -webkit-transition: transform 0.6s;
+  transition: transform 0.6s;
+  height: 150px;
+  width: 150px;
+  transform-style: preserve-3d;
 }
 
-
- .front {
-    transform: rotateY(180deg);
+.front,
+.back {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+  backface-visibility: hidden;
 }
 
+.front {
+  transform: rotateY(180deg);
+}
 
 /* FOOTER */
 
 footer {
     height: 100px;
     width: 100%;
-    background-color: rgb(66, 66, 66);
+    background-color: #351705;
 }
 
 footer p {
-    font-family: Arial, Helvetica, sans-serif;
-    color : #ffe5d1;
-    text-align: center;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffe5d1;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-
 @media screen and (min-width: 1280px) {
-
-
     main {
         flex-grow: 1;
     }
@@ -164,7 +172,7 @@ footer p {
     .zoneJeu{
         width: 1000px;
         height: 600px;
-        background-color:  rgb(66, 66, 66);
+        background-color:  #351705;
         border-radius: 10px;
         margin: 20px auto;
         border: solid 1px #ffe5d1;
@@ -175,7 +183,7 @@ footer p {
     }
 
     #card-container{
-        margin: 20px;
+        margin: 50px;
         display: grid;
         row-gap: 50px;
         grid: repeat(3, 150px) / auto-flow 200px; 

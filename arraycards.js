@@ -6,18 +6,21 @@
 let emptyCard= null;
 /*let cards=document.querySelectorAll("#card-container div") */
 
-let score= document.querySelector(".score-container");
+let score = document.querySelector(".score-container");
+
 
 
 
 /* Variable flip */
   let hasFlippedCard = false;
   let lockBoard = false;
-  let firstCard = true;
+  let firstCard = null;
   let secondCard = true;
 
 /* Tableau d'images */
-  const backCardUrl = "https://i.pinimg.com/originals/61/f9/62/61f962ee16a7b537efa701d3863ee1fc.jpg";
+
+  const backCardUrl = "./images/carteback.png";
+
 
   const frontCardUrls = [ 
     './images/donuts/2-14.jpg',
@@ -71,8 +74,10 @@ let score= document.querySelector(".score-container");
           firstCard.removeEventListener("click", playTurn);
 
     } else if (emptyCard === secondCard.dataset.name) {
+
         score.value = parseInt(score.value) + 75;
         console.log(score);
+
         emptyCard = null;
         
         secondCard.removeEventListener("click", playTurn);
@@ -80,16 +85,22 @@ let score= document.querySelector(".score-container");
     } else {
 
 
+
         score.value -= 25;
         console.log(score);
+
         emptyCard = null;
         
         firstCard.addEventListener("click", playTurn);     
 
-    }
-    if (score.value - 25 < 0) {
-      score.value = 0;
-  }  
+       
+  //Ajout d'une condition si score <= à 0 return 0
+
+      if (score.value - 25 < 0) {
+        score.value = 0;
+    }  
+    
+  }
   };
 
 
@@ -131,7 +142,8 @@ let score= document.querySelector(".score-container");
 
     if (firstCard.dataset.name === secondCard.dataset.name) {
       firstCard.removeEventListener("click", flipCard); // si les 2 cartes possèdent la même data,
-      secondCard.removeEventListener("click", flipCard); // elles restent retournées et ne peuvent plus être sélectionnées
+      secondCard.removeEventListener("click", flipCard);
+      finishGame(); // elles restent retournées et ne peuvent plus être sélectionnées
     } else {
       lockBoard = true; // 'bloque' le tableau afin qu'uniquement 2 cartes soient sélectionnées
 
@@ -142,17 +154,30 @@ let score= document.querySelector(".score-container");
 
         lockBoard = false; // 'débloque' le tableau
       }, 800);
-    }
+    } 
   }
 
 
 /* FIN DU JEU */
 
-  /* function finishGame() {
-      if(nbrPaires >= 6) {
-      alert("Bien joué !!");
+
+let totalPaires = 0
+
+function finishGame(){
+    totalPaires += 1;
+    if(totalPaires >=6) {
+      const playerName = prompt("Bien joué !! Merci de rentrer votre pseudo :")
+      const scores = localStorage.getItem("scores");
+      if (scores){
+        const scoreArray = JSON.parse(scores)
+        scoreArray.push({name:playerName, score:score.value})
+        localStorage.setItem("scores", JSON.stringify(scoreArray))
+      }else {
+        localStorage.setItem("scores", JSON.stringify([{name:playerName, score:score.value}]));
       }
-  } */
+    }
+}
+
 
   /* Démarrage du jeu - point de départ du programme */ 
     const cardArray = createArray(6, frontCardUrls);
@@ -161,7 +186,6 @@ let score= document.querySelector(".score-container");
 
     cardArray.forEach(displayCard);
 
-    // finishGame();
 
    // --------------------------------------------------- //
 
@@ -309,3 +333,4 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 var easter_egg = new Konami(function() { 
   document.location.href="./konami.html"; 
 });
+
