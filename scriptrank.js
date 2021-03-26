@@ -24,19 +24,9 @@
       name: 'Bob3',
       score: 150,
     },
-    {
-      name: 'Bob4',
-      score: 75,
-    },
-  ];
+  
+  ].concat(JSON.parse(localStorage.getItem("scores")))
 
-
-if (localStorage.isOver === 'true') {
-    rankingTable.push({
-      name: localStorage.name,
-      score: parseInt(localStorage.score1),
-    });
-  }
   function compare(a, b) {
     if (a.score > b.score) {
       return -1;
@@ -54,6 +44,4 @@ if (localStorage.isOver === 'true') {
     <td>${i + 1}</td><td>${sortedRankingTable[i].name}</td><td>${
       sortedRankingTable[i].score
     }</td>
-    </tr>`;
-  }
-  
+    </tr>`}
