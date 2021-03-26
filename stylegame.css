@@ -13,13 +13,21 @@ body {
     font-family: 'Indie Flower', cursive;
     font-size: 1em;
     background-color: #ffe5d1;
-
+    background-image : url("images/background-donut.png");
+    background-size: cover;
+    background-attachment: fixed;
 }
+
+
+
 h1 {
     font-size: 3.5em;
-    color: rgb(66, 66, 66);
+    color: #351705;
     text-align: center;
     padding: 50px 0 30px 0;
+    text-shadow: 10px 0 0 #ffe5d1, 0 2px 0 #ffe5d1, 0 -2px 0 #ffe5d1,
+    -2px 0 0 #ffe5d1, 2px 2px 0 #ffe5d1, 2px -2px 0 #ffe5d1, -2px 2px 0 #ffe5d1,
+    -2px -2px 0 #ffe5d1, 0 0 10px #ffe5d1;
   }
 
 
@@ -27,7 +35,7 @@ h1 {
 header {
     font-family: Arial, sans-serif;
     height: 100px;
-    background-color: rgb(66, 66, 66);
+    background-color: #351705;
 }
   
 header nav {
@@ -53,7 +61,8 @@ header nav ul li a {
   
 header nav ul li a:hover, header nav ul li a.current {
     background-color:  #ffe5d1;
-    color:  rgb(66, 66, 66);
+    color:  #351705;
+    border-radius: 5px;
 }
 
 
@@ -85,7 +94,7 @@ header nav ul li a:hover, header nav ul li a.current {
     border-radius: 10px;
     margin: 20px auto;
     padding-bottom: 50px;
-    background-color: rgb(66, 66, 66);
+    background-color: #351705;
     border: solid 1px #ffe5d1;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     perspective: 1000px;
@@ -134,7 +143,7 @@ header nav ul li a:hover, header nav ul li a.current {
 footer {
     height: 100px;
     width: 100%;
-    background-color: rgb(66, 66, 66);
+    background-color: #351705;
 }
 
 footer p {
@@ -164,7 +173,7 @@ footer p {
     .zoneJeu{
         width: 1000px;
         height: 600px;
-        background-color:  rgb(66, 66, 66);
+        background-color:  #351705;
         border-radius: 10px;
         margin: 20px auto;
         border: solid 1px #ffe5d1;
@@ -175,7 +184,7 @@ footer p {
     }
 
     #card-container{
-        margin: 20px;
+        margin: 50px;
         display: grid;
         row-gap: 50px;
         grid: repeat(3, 150px) / auto-flow 200px; 

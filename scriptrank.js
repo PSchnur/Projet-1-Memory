@@ -13,19 +13,19 @@
       score: 230000,
     },
     {
-      name: 'Bob1',
-      score: 235,
+      name: 'Bob',
+      score: 75,
     },
     {
-      name: 'Bob2',
-      score: 200,
+      name: 'Bob',
+      score: 75,
     },
     {
-      name: 'Bob3',
-      score: 150,
+      name: 'Bob',
+      score: 75,
     },
     {
-      name: 'Bob4',
+      name: 'Bob',
       score: 75,
     },
   ];

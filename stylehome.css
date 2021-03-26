@@ -15,9 +15,12 @@ body {
 
 h1 {
     font-size: 3.5em;
-    color: rgb(66, 66, 66);
+    color: #351705;
     text-align: center;
     padding: 50px 0 30px 0;
+    text-shadow: 10px 0 0 #ffe5d1, 0 2px 0 #ffe5d1, 0 -2px 0 #ffe5d1,
+    -2px 0 0 #ffe5d1, 2px 2px 0 #ffe5d1, 2px -2px 0 #ffe5d1, -2px 2px 0 #ffe5d1,
+    -2px -2px 0 #ffe5d1, 0 0 10px #ffe5d1;
 }
 
 
@@ -25,7 +28,7 @@ h1 {
 header {
     font-family: Arial, sans-serif;
     height: 100px;
-    background-color: rgb(66, 66, 66);
+    background-color: #351705;
 }
   
 header nav {
@@ -51,7 +54,8 @@ header nav ul li a {
   
 header nav ul li a:hover, header nav ul li a.current {
     background-color:  #ffe5d1;
-    color:  rgb(66, 66, 66);
+    color: #351705;
+    border-radius: 5px;
 }
 
 
@@ -70,16 +74,17 @@ header nav ul li a:hover, header nav ul li a.current {
 
 .play {
     position: absolute;
-    font-size: 1.5em;
     width: 300px;
     height: 150px;
     border-radius: 10px;
     border: solid 1px #ffe5d1;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     margin:  50px auto;
-    background-color: rgb(66, 66, 66);
+    background-color: #351705;
 }
 .bouton1 a{
+    font-size: 1.5em;
+    font-family: 'Indie Flower', cursive;
     text-decoration: none;
     color: #ffe5d1;
 }
