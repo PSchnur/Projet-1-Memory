@@ -18,7 +18,7 @@ let score = document.querySelector(".score-container");
   let secondCard = true;
 
 /* Tableau d'images */
-  const backCardUrl = "./images/backcard.jpg";
+  const backCardUrl = "./images/carteback.png";
 
   const frontCardUrls = [ 
     './images/donuts/2-14.jpg',
