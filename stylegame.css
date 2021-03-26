@@ -81,17 +81,16 @@ header nav ul li a.current {
   align-items: center;
 }
 
-.sectionJeu label {
-  font-size: 1.5em;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .score-container {
-  margin: 20px;
-  height: 100%;
-  width: 200px;
-  font-size: 2em;
-  text-align: center;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(66, 66, 66);
+    resize: none;
+    outline: none;
+    color: #ffe5d1;
+    font-size: 2em;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .zoneJeu{
