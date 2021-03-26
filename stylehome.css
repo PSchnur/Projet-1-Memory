@@ -7,7 +7,7 @@
 body {
     font-family: 'Indie Flower', cursive;
     font-size: 1em;
-    background-image : url("images/background-donut.png");
+    background-color:#ffe5d1;
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;
@@ -26,37 +26,47 @@ h1 {
 
 /* NAV */
 header {
+    
+    list-style: none;
     font-family: Arial, sans-serif;
+    width: 100%;
     height: 100px;
     background-color: #351705;
 }
   
 header nav {
     text-align: right;
-    padding-right: 20px;
-}
-  
-header nav ul li {
+    padding-right: 10px;
+}  
+header nav ul li  {
     display: inline-block;
     height: 100%;
-}
-  
+} 
 header nav ul li a {
     text-decoration: none;
     text-transform: uppercase;
     color: #ffe5d1;
     display: block;
-    margin-top: 25px;
     line-height: 50px;
     padding: 0 10px;
     transition-duration: 0.5s;
-}
-  
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-end;
+} 
 header nav ul li a:hover, header nav ul li a.current {
     background-color:  #ffe5d1;
     color: #351705;
     border-radius: 5px;
 }
+
+
+
+img {
+    display: grid;
+    justify-self: flex-start;
+    width: 100px;
+    height: 100px;}
 
 
 /* bouton */
@@ -99,11 +109,6 @@ header nav ul li a:hover, header nav ul li a.current {
     height: 60%;
 }
 
-.play{
-    font-size: 3em;
-    width: 300px;
-    height: 150px;
-}
 
 
 

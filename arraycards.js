@@ -6,14 +6,15 @@
 let emptyCard= null;
 /*let cards=document.querySelectorAll("#card-container div") */
 
-let score= document.querySelector(".score-container");
+let score = document.querySelector(".score-container");
+
 
 
 
 /* Variable flip */
   let hasFlippedCard = false;
   let lockBoard = false;
-  let firstCard = true;
+  let firstCard = null;
   let secondCard = true;
 
 /* Tableau d'images */
@@ -76,8 +77,8 @@ let score= document.querySelector(".score-container");
 
     } else if (emptyCard === secondCard.dataset.name) {
       
-        score.value = score.value +++ 75;
-        console.log(score);
+        score.value = parseInt(score.value) + 75;
+        console.log(score.value);
         emptyCard = null;
         
         firstCard.removeEventListener("click", playTurn); // si les 2 cartes possèdent la même data,
@@ -89,8 +90,8 @@ let score= document.querySelector(".score-container");
         
     } else {
 
-        score.value = score.value - 25;
-        console.log(score);
+        score.value -= 25;
+        console.log(score.value);
         emptyCard = null;
 
        
@@ -99,6 +100,7 @@ let score= document.querySelector(".score-container");
       if (score.value - 25 < 0) {
         score.value = 0;
     }  
+    
   }
   };
 
@@ -141,29 +143,38 @@ let score= document.querySelector(".score-container");
 
     if (firstCard.dataset.name === secondCard.dataset.name) {
       firstCard.removeEventListener("click", flipCard); // si les 2 cartes possèdent la même data,
-      secondCard.removeEventListener("click", flipCard); // elles restent retournées et ne peuvent plus être sélectionnées
+      secondCard.removeEventListener("click", flipCard);
+      finishGame() // elles restent retournées et ne peuvent plus être sélectionnées
     } else {
       lockBoard = true; // 'bloque' le tableau afin qu'uniquement 2 cartes soient sélectionnées
 
       setTimeout(() => {
         firstCard.classList.remove("flip"); // retourne les 2 cartes si elles ne correspondent pas après 1 seconde
         secondCard.classList.remove("flip");
-
+        firstCard = null;
         lockBoard = false; // 'débloque' le tableau
       }, 800);
-    }
+    } 
   }
 
 
 /* FIN DU JEU */
 
-/*
-const totalPaires = 0
+
+let totalPaires = 0
 
 function finishGame(){
     totalPaires += 1;
     if(totalPaires >=6) {
-    alert("Bien joué !!");
+      const playerName = prompt("Bien joué !! Merci de rentrer votre pseudo :")
+      const scores = localStorage.getItem("scores");
+      if (scores){
+        const scoreArray = JSON.parse(scores)
+        scoreArray.push({name:playerName, score:score.value})
+        localStorage.setItem("scores", JSON.stringify(scoreArray))
+      }else {
+        localStorage.setItem("scores", JSON.stringify([{name:playerName, score:score.value}]));
+      }
     }
 }
 
@@ -183,3 +194,6 @@ function finishGame(){
     cardArray.forEach(displayCard);
 
     /* finishGame();  */
+
+    localStorage.setItem("score", score.value);
+    
