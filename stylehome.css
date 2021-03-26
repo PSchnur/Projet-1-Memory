@@ -44,6 +44,7 @@ header nav ul li a {
     text-decoration: none;
     text-transform: uppercase;
     color: #ffe5d1;
+    margin-top: 25px;
     display: block;
     line-height: 50px;
     padding: 0 10px;
@@ -95,13 +96,9 @@ header nav ul li a:hover, header nav ul li a.current {
     height: 60%;
 }
 
-play{
+.play{
     font-size: 3em;
     width: 300px;
     height: 150px;
 }
-
-
-
-
 }
