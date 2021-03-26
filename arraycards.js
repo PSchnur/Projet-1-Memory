@@ -17,7 +17,7 @@ let score= document.querySelector(".score-container");
   let secondCard = true;
 
 /* Tableau d'images */
-  const backCardUrl = "./images/backcard.jpg";
+  const backCardUrl = "https://i.pinimg.com/originals/61/f9/62/61f962ee16a7b537efa701d3863ee1fc.jpg";
 
   const frontCardUrls = [ 
     './images/donuts/2-14.jpg',
@@ -64,42 +64,32 @@ let score= document.querySelector(".score-container");
   //Etape 1 : emptyCard prends la valeur de la carte sur laquelle on clique
   //Etape 2 : compare la valeur de emptyCard à celle du second clique
 
-    function playTurn (){
-
-      console.log(emptyCard)
+    function playTurn () {
+      console.log(emptyCard);
       if(emptyCard === null) {
-          emptyCard = firstCard.dataset.name
- 
-  //Si valeur du second clique === celle de emptyCard +100 points
-  //réinitialise la valeur de emptyCard
-  //pourquoi +++ ?
+          emptyCard = firstCard.dataset.name;
+          firstCard.removeEventListener("click", playTurn);
 
     } else if (emptyCard === secondCard.dataset.name) {
-      
-        score.value = score.value +++ 75;
+        score.value = parseInt(score.value) + 75;
         console.log(score);
         emptyCard = null;
         
-        firstCard.removeEventListener("click", playTurn); // si les 2 cartes possèdent la même data,
-        secondCard.removeEventListener("click", playTurn); // elles restent retournées et ne peuvent plus être sélectionnées
-        
-    
-  // si valeur de emptyCard !== du second clique -25points
-  // réinitialise la valeur de emptyCard
+        secondCard.removeEventListener("click", playTurn);
         
     } else {
 
-        score.value = score.value - 25;
+
+        score.value -= 25;
         console.log(score);
         emptyCard = null;
+        
+        firstCard.addEventListener("click", playTurn);     
 
-       
-  //Ajout d'une condition si score <= à 0 return 0
-
-      if (score.value - 25 < 0) {
-        score.value = 0;
-    }  
-  }
+    }
+    if (score.value - 25 < 0) {
+      score.value = 0;
+  }  
   };
 
 
@@ -148,6 +138,7 @@ let score= document.querySelector(".score-container");
       setTimeout(() => {
         firstCard.classList.remove("flip"); // retourne les 2 cartes si elles ne correspondent pas après 1 seconde
         secondCard.classList.remove("flip");
+        firstCard = null;
 
         lockBoard = false; // 'débloque' le tableau
       }, 800);
@@ -157,23 +148,11 @@ let score= document.querySelector(".score-container");
 
 /* FIN DU JEU */
 
-/*
-const totalPaires = 0
-
-function finishGame(){
-    totalPaires += 1;
-    if(totalPaires >=6) {
-    alert("Bien joué !!");
-    }
-}
-
-
-/*
-
-
-
-
-
+  /* function finishGame() {
+      if(nbrPaires >= 6) {
+      alert("Bien joué !!");
+      }
+  } */
 
   /* Démarrage du jeu - point de départ du programme */ 
     const cardArray = createArray(6, frontCardUrls);
@@ -182,4 +161,151 @@ function finishGame(){
 
     cardArray.forEach(displayCard);
 
-    /* finishGame();  */
+    // finishGame();
+
+   // --------------------------------------------------- //
+
+   var Konami = function (callback) {
+    var konami = {
+        addEvent: function (obj, type, fn, ref_obj) {
+            if (obj.addEventListener)
+                obj.addEventListener(type, fn, false);
+            else if (obj.attachEvent) {
+                // IE
+                obj["e" + type + fn] = fn;
+                obj[type + fn] = function () {
+                    obj["e" + type + fn](window.event, ref_obj);
+                }
+                obj.attachEvent("on" + type, obj[type + fn]);
+            }
+        },
+        removeEvent: function (obj, eventName, eventCallback) {
+            if (obj.removeEventListener) {
+                obj.removeEventListener(eventName, eventCallback);
+            } else if (obj.attachEvent) {
+                obj.detachEvent(eventName);
+            }
+        },
+        input: "",
+        pattern: "38384040373937396665",
+        keydownHandler: function (e, ref_obj) {
+            if (ref_obj) {
+                konami = ref_obj;
+            } // IE
+            konami.input += e ? e.keyCode : event.keyCode;
+            if (konami.input.length > konami.pattern.length) {
+                konami.input = konami.input.substr((konami.input.length - konami.pattern.length));
+            }
+            if (konami.input === konami.pattern) {
+                konami.code(konami._currentLink);
+                konami.input = '';
+                e.preventDefault();
+                return false;
+            }
+        },
+        load: function (link) {
+            this._currentLink = link;
+            this.addEvent(document, "keydown", this.keydownHandler, this);
+            this.iphone.load(link);
+        },
+        unload: function () {
+            this.removeEvent(document, 'keydown', this.keydownHandler);
+            this.iphone.unload();
+        },
+        code: function (link) {
+            window.location = link
+        },
+        iphone: {
+            start_x: 0,
+            start_y: 0,
+            stop_x: 0,
+            stop_y: 0,
+            tap: false,
+            capture: false,
+            orig_keys: "",
+            keys: ["UP", "UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "RIGHT", "TAP", "TAP"],
+            input: [],
+            code: function (link) {
+                konami.code(link);
+            },
+            touchmoveHandler: function (e) {
+                if (e.touches.length === 1 && konami.iphone.capture === true) {
+                    var touch = e.touches[0];
+                    konami.iphone.stop_x = touch.pageX;
+                    konami.iphone.stop_y = touch.pageY;
+                    konami.iphone.tap = false;
+                    konami.iphone.capture = false;
+                    konami.iphone.check_direction();
+                }
+            },
+            touchendHandler: function () {
+                konami.iphone.input.push(konami.iphone.check_direction());
+                
+                if (konami.iphone.input.length > konami.iphone.keys.length) konami.iphone.input.shift();
+                
+                if (konami.iphone.input.length === konami.iphone.keys.length) {
+                    var match = true;
+                    for (var i = 0; i < konami.iphone.keys.length; i++) {
+                        if (konami.iphone.input[i] !== konami.iphone.keys[i]) {
+                            match = false;
+                        }
+                    }
+                    if (match) {
+                        konami.iphone.code(konami._currentLink);
+                    }
+                }
+            },
+            touchstartHandler: function (e) {
+                konami.iphone.start_x = e.changedTouches[0].pageX;
+                konami.iphone.start_y = e.changedTouches[0].pageY;
+                konami.iphone.tap = true;
+                konami.iphone.capture = true;
+            },
+            load: function (link) {
+                this.orig_keys = this.keys;
+                konami.addEvent(document, "touchmove", this.touchmoveHandler);
+                konami.addEvent(document, "touchend", this.touchendHandler, false);
+                konami.addEvent(document, "touchstart", this.touchstartHandler);
+            },
+            unload: function () {
+                konami.removeEvent(document, 'touchmove', this.touchmoveHandler);
+                konami.removeEvent(document, 'touchend', this.touchendHandler);
+                konami.removeEvent(document, 'touchstart', this.touchstartHandler);
+            },
+            check_direction: function () {
+                x_magnitude = Math.abs(this.start_x - this.stop_x);
+                y_magnitude = Math.abs(this.start_y - this.stop_y);
+                x = ((this.start_x - this.stop_x) < 0) ? "RIGHT" : "LEFT";
+                y = ((this.start_y - this.stop_y) < 0) ? "DOWN" : "UP";
+                result = (x_magnitude > y_magnitude) ? x : y;
+                result = (this.tap === true) ? "TAP" : result;
+                return result;
+            }
+        }
+    }
+
+    typeof callback === "string" && konami.load(callback);
+    if (typeof callback === "function") {
+        konami.code = callback;
+        konami.load();
+    }
+
+    return konami;
+};
+
+
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+        module.exports = Konami;
+} else {
+        if (typeof define === 'function' && define.amd) {
+                define([], function() {
+                        return Konami;
+                });
+        } else {
+                window.Konami = Konami;
+        }
+}
+
+var easter_egg = new Konami(function() { 
+  document.location.href="./konami.html"; 
+});
