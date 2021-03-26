@@ -90,6 +90,7 @@ header nav ul li a.current {
     outline: none;
     color: #ffe5d1;
     font-size: 2em;
+    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
 
